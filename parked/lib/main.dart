@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:parked/pages/homepage.dart';
 import 'package:parked/pages/userlogin.dart';
+import 'package:parked/pages/usersignup.dart';
 
 void main() {
   runApp(const MyApp());
@@ -11,7 +13,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
       home: SafeArea(top: true, child: UserLogin()),
     );
   }

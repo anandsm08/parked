@@ -1,5 +1,10 @@
+import 'dart:developer';
+
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:parked/pages/usersignup.dart';
 import 'package:parked/utils/loginoptcards.dart';
+import 'package:get/get.dart';
 
 class UserLogin extends StatefulWidget {
   const UserLogin({super.key});
@@ -60,19 +65,21 @@ class _UserLoginState extends State<UserLogin> {
                         ),
                         border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(10.0)),
-                        hintText: 'Enter your email'),
+                        hintText: 'Enter your email',
+                        prefixIcon: Icon(Icons.email_sharp)),
                   ),
                   const SizedBox(
                     height: 10,
                   ),
                   TextFormField(
                     decoration: InputDecoration(
-                        focusedBorder: OutlineInputBorder(
+                        focusedBorder: const OutlineInputBorder(
                           borderSide: BorderSide(color: Colors.black54),
                         ),
                         border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(10.0)),
-                        hintText: 'Enter your password'),
+                        hintText: 'Enter your password',
+                        prefixIcon: const Icon(Icons.password_outlined)),
                   ),
                   const SizedBox(
                     height: 10,
@@ -91,19 +98,68 @@ class _UserLoginState extends State<UserLogin> {
             const SizedBox(
               height: 10,
             ),
+            Center(
+              child: Container(
+                height: screenheight * 0.07,
+                width: screenwidth * 0.4,
+                decoration: BoxDecoration(
+                    color: Colors.grey.shade400,
+                    borderRadius: BorderRadius.circular(15)),
+                child: Center(
+                    child: Text(
+                  'Log in',
+                  style: TextStyle(fontSize: 24),
+                )),
+              ),
+            ),
+            const SizedBox(
+              height: 20,
+            ),
+            Container(
+              margin: const EdgeInsets.symmetric(
+                horizontal: 10,
+              ),
+              child: Text(
+                "Login with ",
+                style: TextStyle(fontSize: 18),
+              ),
+            ),
+            SizedBox(
+              height: 10,
+            ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 LoginOptions(
-                    opticon: Image.asset('assets/'),
-                    optcolor: Colors.amberAccent),
+                  optcolor: Colors.grey.shade300,
+                  opticon: 'lib/assets/phone-logo.png',
+                ),
                 LoginOptions(
-                    opticon: Image.asset('assets/'),
-                    optcolor: Colors.redAccent),
+                  optcolor: Colors.grey.shade300,
+                  opticon: 'lib/assets/google-logo-black.png',
+                ),
                 LoginOptions(
-                    opticon: Image.asset('assets/'), optcolor: Colors.black54)
+                  optcolor: Colors.grey.shade300,
+                  opticon: 'lib/assets/apple-logo.png',
+                )
               ],
-            )
+            ),
+            const SizedBox(height: 40),
+            Center(
+              child: RichText(
+                  text: TextSpan(
+                      text: "New user? ",
+                      style:
+                          const TextStyle(color: Colors.black54, fontSize: 18),
+                      children: [
+                    TextSpan(
+                        text: "Sign up",
+                        style: const TextStyle(
+                            color: Colors.black, fontWeight: FontWeight.bold),
+                        recognizer: TapGestureRecognizer()
+                          ..onTap = () => Get.to(() => UserSignup()))
+                  ])),
+            ),
           ],
         ),
       ),
