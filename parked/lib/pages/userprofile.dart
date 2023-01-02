@@ -26,7 +26,7 @@ class _userProfileState extends State<userProfile> {
                 CircleAvatar(),
                 Column(
                   children: [Text('User Name'), Text('Free Plan')],
-                )
+                ),
               ],
             ),
           ],
