@@ -1,8 +1,8 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
-import 'package:parked/pages/userprofile.dart';
+//import 'package:parked/pages/userprofile.dart';
+import 'package:parked/utils/bottomnavbar.dart';
 import 'package:parked/utils/topbar.dart';
 
 class HomePage extends StatefulWidget {
@@ -76,7 +76,7 @@ class _HomePageState extends State<HomePage> {
               ),
             ],
           )),
-
+      //bottomNavigationBar: bottomNav(),
       // bottomNavigationBar: BottomNavigationBar(items: items),
     );
   }
