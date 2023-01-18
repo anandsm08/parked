@@ -16,8 +16,8 @@ Parked is designed and developed to overcome this situation and make the app acc
 
 
 <b> Technology Stack Used </b>
-- Code Editor : Virtual Studio Code 
-- Language | Framework : Flutter
+- Code Editor : Visual Studio Code 
+- Language | Framework : Flutter | Dart
 
 # Functionality  :
 
