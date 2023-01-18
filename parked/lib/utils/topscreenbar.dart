@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:parked/pages/homepage.dart';
+import 'package:parked/utils/bottomnavbar.dart';
 
 class topScreenBar extends StatelessWidget {
   const topScreenBar({super.key});
@@ -18,7 +19,7 @@ class topScreenBar extends StatelessWidget {
             height: 20,
             child: GestureDetector(
                 child: Icon(Icons.arrow_back_rounded),
-                onTap: () => Get.to(() => const HomePage())),
+                onTap: () => Get.to(() => const bottomNav())),
           ),
           Container(
             height: 20,

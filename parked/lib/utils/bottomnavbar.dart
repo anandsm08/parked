@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 
 import 'package:parked/pages/homepage.dart';
 import 'package:parked/pages/paywallet.dart';
-import 'package:parked/pages/userlogin.dart';
 import 'package:parked/pages/userprofile.dart';
+
+import '../pages/parkingpage.dart';
 
 class bottomNav extends StatefulWidget {
   const bottomNav({super.key});
@@ -16,7 +17,7 @@ class _bottomNavState extends State<bottomNav> {
   int _currentIndex = 0;
   final List<Widget> _screens = [
     HomePage(),
-    //parkpage(),
+    parkPage(),
     walletPage(),
     userProfile(),
   ];
@@ -30,30 +31,30 @@ class _bottomNavState extends State<bottomNav> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: _screens[_currentIndex],
+      body: SafeArea(top: true, child: _screens[_currentIndex]),
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _currentIndex,
         onTap: onTapbar,
-        items: [
-          const BottomNavigationBarItem(
+        items: const [
+          BottomNavigationBarItem(
             tooltip: 'Home',
             label: '',
             icon: Icon(Icons.home),
           ),
-          const BottomNavigationBarItem(
+          BottomNavigationBarItem(
               tooltip: 'Parking spot',
               label: '',
               icon: Icon(Icons.local_parking)),
-          const BottomNavigationBarItem(
+          BottomNavigationBarItem(
               tooltip: 'Wallet',
               label: '',
               icon: Icon(Icons.account_balance_wallet)),
-          const BottomNavigationBarItem(
+          BottomNavigationBarItem(
               tooltip: 'Settings', label: '', icon: Icon(Icons.menu_sharp)),
         ],
         backgroundColor: Colors.redAccent,
         selectedItemColor: Colors.black,
-        unselectedItemColor: Colors.greenAccent,
+        unselectedItemColor: Colors.grey.shade400,
       ),
     );
   }

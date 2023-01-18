@@ -20,14 +20,28 @@ class _userProfileState extends State<userProfile> {
         padding: EdgeInsets.fromLTRB(10, 10, 10, 0),
         child: Column(
           children: [
-            topScreenBar(),
-            Row(
-              children: [
-                CircleAvatar(),
-                Column(
-                  children: [Text('User Name'), Text('Free Plan')],
-                ),
-              ],
+            Container(
+              margin: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  CircleAvatar(
+                    radius: 50,
+                    child: Icon(
+                      Icons.account_circle,
+                      size: 100,
+                    ),
+                  ),
+                  SizedBox(
+                    width: 20,
+                  ),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [Text('User Name'), Text('Free Plan')],
+                  ),
+                ],
+              ),
             ),
           ],
         ),
