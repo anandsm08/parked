@@ -7,8 +7,12 @@ import 'package:parked/pages/userprofile.dart';
 import 'package:parked/pages/usersignup.dart';
 import 'package:parked/utils/bottomnavbar.dart';
 
+import 'package:flutter_config/flutter_config.dart';
+
 Future main() async {
-  await dotenv.load(fileName: "lib/.env");
+  WidgetsFlutterBinding.ensureInitialized(); // Required by FlutterConfig
+  await FlutterConfig.loadEnvVariables();
+  //await dotenv.load(fileName: "lib/.env");
   runApp(const MyApp());
 }
 

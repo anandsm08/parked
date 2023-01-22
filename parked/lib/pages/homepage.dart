@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
 //import 'package:parked/pages/userprofile.dart';
 import 'package:parked/utils/bottomnavbar.dart';
 import 'package:parked/utils/topbar.dart';
@@ -56,6 +57,10 @@ class _HomePageState extends State<HomePage> {
                     borderRadius: BorderRadius.circular(10)),
                 margin: const EdgeInsets.all(10),
                 height: screenheight * 0.4,
+                child: GoogleMap(
+                  initialCameraPosition: CameraPosition(
+                      target: LatLng(18.990352272926827, 73.12766939062205)),
+                ),
               ),
               GestureDetector(
                 child: Center(
