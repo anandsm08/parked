@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
@@ -14,6 +16,8 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  final Completer<GoogleMapController> _controller =
+      Completer<GoogleMapController>();
   @override
   Widget build(BuildContext context) {
     double screenwidth = MediaQuery.of(context).size.width;
@@ -52,14 +56,14 @@ class _HomePageState extends State<HomePage> {
                 ),
               ),
               Container(
-                decoration: BoxDecoration(
-                    color: Colors.blueAccent,
-                    borderRadius: BorderRadius.circular(10)),
+                decoration:
+                    BoxDecoration(borderRadius: BorderRadius.circular(10)),
                 margin: const EdgeInsets.all(10),
                 height: screenheight * 0.4,
                 child: GoogleMap(
                   initialCameraPosition: CameraPosition(
-                      target: LatLng(18.990352272926827, 73.12766939062205)),
+                    target: LatLng(18.990352272926827, 73.12766939062205),
+                  ),
                 ),
               ),
               GestureDetector(
