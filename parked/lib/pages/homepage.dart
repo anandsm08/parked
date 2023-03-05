@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:developer';
 
 import 'package:flutter/material.dart';
 
@@ -30,7 +31,7 @@ class _HomePageState extends State<HomePage> {
             children: [
               TopBar(),
               SizedBox(
-                height: screenheight * 0.1,
+                height: screenheight * 0.035,
               ),
               Container(
                 margin: EdgeInsets.symmetric(horizontal: 10),
@@ -39,49 +40,73 @@ class _HomePageState extends State<HomePage> {
                   style: TextStyle(fontSize: 24, fontWeight: FontWeight.w400),
                 ),
               ),
-              SizedBox(
-                height: screenheight * 0.02,
-              ),
-              Padding(
-                padding: const EdgeInsets.all(10.0),
-                child: TextFormField(
-                  decoration: InputDecoration(
-                      focusedBorder: OutlineInputBorder(
-                        borderSide: BorderSide(color: Colors.black38),
+              Stack(
+                children: [
+                  Container(
+                    decoration:
+                        BoxDecoration(borderRadius: BorderRadius.circular(10)),
+                    margin: const EdgeInsets.all(10),
+                    height: screenheight * 0.65,
+                    child: GoogleMap(
+                      initialCameraPosition: CameraPosition(
+                        target: LatLng(18.990352272926827, 73.12766939062205),
                       ),
-                      border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(10.0)),
-                      hintText: 'Find parking spot.',
-                      prefixIcon: const Icon(Icons.location_pin)),
-                ),
-              ),
-              Container(
-                decoration:
-                    BoxDecoration(borderRadius: BorderRadius.circular(10)),
-                margin: const EdgeInsets.all(10),
-                height: screenheight * 0.4,
-                child: GoogleMap(
-                  initialCameraPosition: CameraPosition(
-                    target: LatLng(18.990352272926827, 73.12766939062205),
+                    ),
                   ),
-                ),
-              ),
-              GestureDetector(
-                child: Center(
-                  child: Container(
-                    height: screenheight * 0.07,
-                    width: screenwidth * 0.5,
-                    decoration: BoxDecoration(
-                        color: Colors.green.shade600,
-                        borderRadius: BorderRadius.circular(15)),
-                    child: Center(
-                        child: Text(
-                      'Reserve',
-                      style: TextStyle(fontSize: 24, color: Colors.white),
-                    )),
+                  SizedBox(
+                    height: screenheight * 0.02,
                   ),
-                ),
-                onTap: () => print('slot reserved'),
+                  Padding(
+                    padding: const EdgeInsets.all(15.0),
+                    child: TextFormField(
+                      decoration: InputDecoration(
+                          fillColor: Colors.white70,
+                          filled: true,
+                          focusedBorder: OutlineInputBorder(
+                            borderSide: BorderSide(color: Colors.black38),
+                          ),
+                          border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(10.0)),
+                          hintText: 'Where are you?',
+                          prefixIcon: const Icon(Icons.location_pin)),
+                    ),
+                  ),
+                  SizedBox(
+                    height: screenheight * 0.35,
+                  ),
+                  Positioned(
+                    left: screenwidth * 0.3,
+                    top: screenheight * 0.6,
+                    child: GestureDetector(
+                      child: Center(
+                        child: Container(
+                          height: screenheight * 0.07,
+                          width: screenwidth * 0.45,
+                          decoration: BoxDecoration(
+                              color: Colors.green.shade600,
+                              borderRadius: BorderRadius.circular(15)),
+                          child: Center(
+                              child: Row(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Icon(
+                                Icons.location_on_outlined,
+                                color: Colors.white,
+                              ),
+                              Text(
+                                'Reserve',
+                                style: TextStyle(
+                                    fontSize: 24, color: Colors.white),
+                              ),
+                            ],
+                          )),
+                        ),
+                      ),
+                      onTap: () => log('slot reserved'),
+                    ),
+                  ),
+                ],
               ),
             ],
           )),

@@ -24,6 +24,9 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       home: SafeArea(child: bottomNav()),
       //SafeArea(top: true, child: userProfile()),
+      // routes: {
+      //   '':
+      // } ,
     );
   }
 }
