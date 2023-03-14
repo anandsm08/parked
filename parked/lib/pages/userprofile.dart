@@ -4,14 +4,9 @@ import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:parked/utils/topscreenbar.dart';
 
-class userProfile extends StatefulWidget {
+class userProfile extends StatelessWidget {
   const userProfile({super.key});
 
-  @override
-  State<userProfile> createState() => _userProfileState();
-}
-
-class _userProfileState extends State<userProfile> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -20,8 +15,17 @@ class _userProfileState extends State<userProfile> {
         padding: EdgeInsets.fromLTRB(10, 10, 10, 0),
         child: Column(
           children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                GestureDetector(
+                  child: Icon(Icons.logout),
+                  onTap: () => print('Logged out'),
+                )
+              ],
+            ),
             Container(
-              margin: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+              margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
@@ -29,6 +33,7 @@ class _userProfileState extends State<userProfile> {
                     radius: 50,
                     child: Icon(
                       Icons.account_circle,
+                      color: Colors.black45,
                       size: 100,
                     ),
                   ),

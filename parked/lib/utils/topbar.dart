@@ -52,6 +52,7 @@ class TopBar extends StatelessWidget {
                 ),
               ),
               onTap: () => Get.to(() => const sosPage()),
+              //onTap: () => Get.to(() => const SearchPage()),
             ),
           ),
         ],
